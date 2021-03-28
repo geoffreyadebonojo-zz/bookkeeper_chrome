@@ -7,10 +7,14 @@ function buttonClicked(){
     active: true,
     lastFocusedWindow: true
   }, function (tabs) {
-    // and use that tab to fill in out title and url
     var tab = tabs[0];
 
-    let data = {"title": tab.title, "url": tab.url}
+    let data = {
+      "title": tab.title, 
+      "url": tab.url,
+      "completed": false,
+      "editing": false
+    }
     fetch('http://localhost:5000', {
       method: 'POST',
       headers: {
